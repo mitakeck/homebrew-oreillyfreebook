@@ -12,6 +12,7 @@ class Oreillyfreebook < Formula
   def install
     ENV['GOPATH'] = buildpath
     system 'go', 'get', 'github.com/PuerkitoBio/goquery'
+    system 'go', 'get', 'gopkg.in/cheggaaa/pb.v1'
     mkdir_p buildpath/'src/github.com/mitakeck/oreillyfreebook'
     ln_s buildpath/'search', buildpath/'src/github.com/mitakeck/oreillyfreebook/.'
     system 'go', 'build', '-o', 'oreillyfreebook'
