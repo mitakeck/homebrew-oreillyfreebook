@@ -1,14 +1,20 @@
+VERSION='v0.0.4'
+
 class Oreillyfreebook < Formula
-  desc "O'Reilly free ebook downloder"
-  url "https://github.com/mitakeck/oreillyfreebook/releases/download/v0.0.4/oreillyfreebook_darwin_amd64"
-  sha256 "01c491bf70b15a3e26443635fe411a3556190a7ac4034fb9569a07849cc443d3"
+  homepage 'https://github.com/mitakeck/oreillyfreebook'
+  url 'https://github.com/mitakeck/oreillyfreebook.git', :tag => "v#{VERSION}"
+  version VERSION
+  head 'https://github.com/mitakeck/oreillyfreebook.git', :branch => 'master'
+
+  depends_on 'go' => :build
+  depends_on 'hg' => :build
 
   def install
-    system "mv", "$HOME/Library/Caches/Homebrew/oreillyfreebook-64", "$HOME/Library/Caches/Homebrew/oreillyfreebook"
-  	bin.install "oreillyfreebook"
-  end
-
-  test do
-    system "false"
+    ENV['GOPATH'] = buildpath
+    system 'go', 'get', 'github.com/PuerkitoBio/goquery'
+    mkdir_p buildpath/'src/github.com/mitakeck/oreillyfreebook'
+    ln_s buildpath/'search', buildpath/'src/github.com/mitakeck/oreillyfreebook/.'
+    system 'go', 'build', '-o', 'oreillyfreebook'
+    bin.install 'oreillyfreebook'
   end
 end
