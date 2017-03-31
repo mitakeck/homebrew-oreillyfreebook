@@ -4,7 +4,7 @@ class Oreillyfreebook < Formula
   sha256 "01c491bf70b15a3e26443635fe411a3556190a7ac4034fb9569a07849cc443d3"
 
   def install
-    system "mv", "oreillyfreebook-64", "oreillyfreebook"
+    system "mv", "$HOME/Library/Caches/Homebrew/oreillyfreebook-64", "$HOME/Library/Caches/Homebrew/oreillyfreebook"
   	bin.install "oreillyfreebook"
   end
 
