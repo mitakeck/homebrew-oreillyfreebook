@@ -1,4 +1,4 @@
-VERSION='v0.0.4'
+VERSION='0.0.4'
 
 class Oreillyfreebook < Formula
   homepage 'https://github.com/mitakeck/oreillyfreebook'
