@@ -5,7 +5,7 @@ class Oreillyfreebook < Formula
   sha256 "01c491bf70b15a3e26443635fe411a3556190a7ac4034fb9569a07849cc443d3"
 
   def install
-  	bin.install Die['oreillyfreebook']
+  	bin.install 'oreillyfreebook'
   end
 
   test do
